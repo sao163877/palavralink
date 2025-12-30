@@ -1,21 +1,24 @@
-<script type='text/javascript'>
-//<![CDATA[
-
 /* ==================================================
    PalavraLink – Tooltip Card (CLICK MODE)
+   Versão BLINDADA contra CSS do tema (Blogger)
    ================================================== */
 
-.palavralink{
-  position: relative;
-  display: inline-block;
+/* Container principal */
+.post-body .palavralink,
+.entry-content .palavralink,
+article .palavralink {
+  position: relative !important;
+  display: inline-block !important;
   cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 /* Tooltip fechado */
-.palavralink .pl-tooltip{
-  position: absolute;
+.post-body .palavralink .pl-tooltip,
+.entry-content .palavralink .pl-tooltip,
+article .palavralink .pl-tooltip {
+  position: absolute !important;
   left: 50%;
   top: calc(100% + 10px);
   transform: translateX(-50%) translateY(8px) scale(.98);
@@ -28,9 +31,9 @@
   box-shadow: 0 22px 55px rgba(0,0,0,.35);
 
   padding: 14px;
-  z-index: 999999;
+  z-index: 999999 !important;
 
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   gap: 8px;
 
@@ -38,11 +41,15 @@
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+  transition: opacity .18s ease,
+              transform .18s ease,
+              visibility .18s ease;
 }
 
 /* Tooltip aberto */
-.palavralink.pl-active .pl-tooltip{
+.post-body .palavralink.pl-active .pl-tooltip,
+.entry-content .palavralink.pl-active .pl-tooltip,
+article .palavralink.pl-active .pl-tooltip {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -50,7 +57,8 @@
 }
 
 /* Imagem */
-.pl-tooltip img{
+.palavralink .pl-tooltip img {
+  display: block !important;
   width: 100%;
   height: auto;
   border-radius: 10px;
@@ -58,7 +66,7 @@
 }
 
 /* Título */
-.pl-tooltip strong{
+.palavralink .pl-tooltip strong {
   font-size: 15px;
   line-height: 1.35;
   font-weight: 700;
@@ -66,7 +74,7 @@
 }
 
 /* Descrição */
-.pl-tooltip p{
+.palavralink .pl-tooltip p {
   font-size: 13px;
   line-height: 1.5;
   color: #333;
@@ -74,7 +82,7 @@
 }
 
 /* Preço */
-.pl-tooltip em{
+.palavralink .pl-tooltip em {
   font-style: normal;
   font-weight: 800;
   font-size: 15px;
@@ -82,30 +90,34 @@
 }
 
 /* CTA */
-.pl-cta{
-  display: block;
+.palavralink .pl-cta {
+  display: block !important;
   margin-top: 8px;
   text-align: center;
 
   background: #0a7;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 10px;
   border-radius: 10px;
 
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  text-decoration: none !important;
 
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: transform .15s ease,
+              box-shadow .15s ease;
 }
 
-.pl-cta:hover{
+.palavralink .pl-cta:hover {
   transform: translateY(-1px);
   box-shadow: 0 8px 18px rgba(0,0,0,.25);
 }
 
-/* Seta */
-.pl-tooltip::after{
+/* Seta do tooltip */
+.post-body .palavralink .pl-tooltip::after,
+.entry-content .palavralink .pl-tooltip::after,
+article .palavralink .pl-tooltip::after {
   content: "";
   position: absolute;
   top: -8px;
@@ -115,4 +127,3 @@
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
-})();
