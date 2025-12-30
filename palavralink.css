@@ -20,22 +20,22 @@ article .palavralink {
 article .palavralink .pl-tooltip {
   position: absolute !important;
   left: 50%;
-  top: calc(100% + 10px);
-  transform: translateX(-50%) translateY(8px) scale(.98);
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(6px) scale(.97);
 
-  width: min(320px, calc(100vw - 24px));
-  max-width: 320px;
+  width: min(280px, calc(100vw - 32px));
+  max-width: 280px;
 
   background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 22px 55px rgba(0,0,0,.35);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.28);
 
-  padding: 14px;
+  padding: 12px;
   z-index: 999999 !important;
 
   display: flex !important;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 
   opacity: 0;
   visibility: hidden;
@@ -60,14 +60,15 @@ article .palavralink.pl-active .pl-tooltip {
 .palavralink .pl-tooltip img {
   display: block !important;
   width: 100%;
+  max-height: 150px;
   height: auto;
-  border-radius: 10px;
+  border-radius: 8px;
   object-fit: cover;
 }
 
 /* Título */
 .palavralink .pl-tooltip strong {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.35;
   font-weight: 700;
   color: #000;
@@ -75,8 +76,8 @@ article .palavralink.pl-active .pl-tooltip {
 
 /* Descrição */
 .palavralink .pl-tooltip p {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 12.5px;
+  line-height: 1.45;
   color: #333;
   margin: 0;
 }
@@ -85,22 +86,22 @@ article .palavralink.pl-active .pl-tooltip {
 .palavralink .pl-tooltip em {
   font-style: normal;
   font-weight: 800;
-  font-size: 15px;
+  font-size: 14px;
   color: #0a7;
 }
 
 /* CTA */
 .palavralink .pl-cta {
   display: block !important;
-  margin-top: 8px;
+  margin-top: 6px;
   text-align: center;
 
   background: #0a7;
   color: #ffffff !important;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 9px;
+  border-radius: 9px;
 
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none !important;
@@ -111,7 +112,7 @@ article .palavralink.pl-active .pl-tooltip {
 
 .palavralink .pl-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
 }
 
 /* Seta do tooltip */
@@ -120,10 +121,11 @@ article .palavralink.pl-active .pl-tooltip {
 article .palavralink .pl-tooltip::after {
   content: "";
   position: absolute;
-  top: -8px;
+  top: -7px;
   left: 50%;
   transform: translateX(-50%);
-  border-width: 8px;
+  border-width: 7px;
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
+
