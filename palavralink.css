@@ -9,6 +9,7 @@
   cursor: pointer;
 }
 
+/* Palavra destacada */
 .palavralink .pl-word {
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -16,7 +17,9 @@
   color: #0a7;
 }
 
-/* Tooltip (fechado) */
+/* ==================================================
+   Tooltip (fechado por padrão)
+   ================================================== */
 .palavralink .pl-tooltip {
   position: absolute;
   left: 50%;
@@ -39,21 +42,29 @@
 
   opacity: 0;
   visibility: hidden;
+
+  /* 🔒 IMPORTANTE: tooltip não bloqueia clique */
   pointer-events: none;
 
-  transition: opacity .18s ease,
-              transform .18s ease,
-              visibility .18s ease;
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
 }
 
-/* Tooltip aberto */
+/* ==================================================
+   Tooltip aberto (hover desktop / click mobile)
+   ================================================== */
 .palavralink:hover .pl-tooltip,
 .palavralink.pl-active .pl-tooltip {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
   transform: translateX(-50%) translateY(0) scale(1);
 }
+
+/* ==================================================
+   Conteúdo do tooltip
+   ================================================== */
 
 /* Imagem */
 .palavralink .pl-tooltip img {
@@ -86,7 +97,9 @@
   color: #0a7;
 }
 
-/* Botão CTA */
+/* ==================================================
+   Botão CTA – sempre clicável
+   ================================================== */
 .palavralink .pl-cta {
   display: block;
   margin-top: 6px;
@@ -98,9 +111,20 @@
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
+
+  /* 🔓 libera clique mesmo com tooltip */
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-/* Seta */
+/* Hover CTA */
+.palavralink .pl-cta:hover {
+  background: #098;
+}
+
+/* ==================================================
+   Seta do tooltip
+   ================================================== */
 .palavralink .pl-tooltip::after {
   content: "";
   position: absolute;
