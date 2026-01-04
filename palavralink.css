@@ -16,7 +16,17 @@
   font-weight: 600;
   color: #0a7;
 }
-
+/* ==================================================
+   Ícone de compra – PalavraLink
+   ================================================== */
+.palavralink .pl-icon {
+  font-size: 0.85em;
+  opacity: 0.55;
+  margin-right: 3px;
+  vertical-align: baseline;
+  user-select: none;
+  pointer-events: none;
+}
 /* ==================================================
    Tooltip (fechado por padrão)
    ================================================== */
