@@ -135,3 +135,29 @@
   border-style: solid;
   border-color: transparent transparent #ffffff transparent;
 }
+/* ==================================================
+   Ajustes específicos para MOBILE
+   ================================================== */
+@media (max-width: 768px) {
+
+  /* tooltip mais central e seguro */
+  .palavralink .pl-tooltip {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(10px) scale(.98);
+    max-width: calc(100vw - 24px);
+  }
+
+  /* remove hover no mobile (evita bugs) */
+  .palavralink:hover .pl-tooltip {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* só abre quando JS ativar */
+  .palavralink.pl-active .pl-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
