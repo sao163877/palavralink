@@ -31,7 +31,7 @@
    Tooltip (fechado por padrão)
    ================================================== */
 .palavralink .pl-tooltip {
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: calc(100% + 8px);
   transform: translateX(-50%) translateY(6px) scale(.97);
