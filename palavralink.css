@@ -205,3 +205,12 @@ footer,
   position: fixed;
   z-index: 2147483647; /* z-index máximo seguro */
 }
+/* Rodapés flutuantes NÃO devem vencer tooltips */
+footer,
+.site-footer,
+[class*="footer"],
+[class*="bottom"],
+[class*="copyright"],
+[class*="social"] {
+  z-index: 10 !important;
+}
