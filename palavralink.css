@@ -197,3 +197,11 @@ footer,
   position: relative;
   z-index: 1;
 }
+/* ==================================================
+   FIX FINAL – PalavraLink acima de QUALQUER rodapé
+   ================================================== */
+
+.palavralink .pl-tooltip {
+  position: fixed;
+  z-index: 2147483647; /* z-index máximo seguro */
+}
