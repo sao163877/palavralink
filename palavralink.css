@@ -1,5 +1,5 @@
 /* ==================================================
-   PalavraLink – Tooltip Card (Blogger Safe)
+   PalavraLink – Tooltip Card (Blogger Safe) – PORTAL FIX
    ================================================== */
 
 /* Palavra clicável */
@@ -29,43 +29,68 @@
 }
 
 /* ==================================================
-   Tooltip
+   Tooltip (PORTAL: vai para o body)
    ================================================== */
-.palavralink .pl-tooltip {
-  position: fixed;
-  z-index: 999999;
+.pl-tooltip {
+  position: fixed;                 /* CRÍTICO */
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(6px) scale(.97);
+
+  width: min(280px, calc(100vw - 32px));
+  max-width: 280px;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.28);
+
+  padding: 12px;
+  z-index: 2147483647;             /* acima de tudo */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  /* IMPORTANTE: aqui precisa ser auto para clicar no botão */
+  pointer-events: auto;
+
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    visibility .18s ease;
 }
 
-/* Tooltip ativo */
-.palavralink:hover .pl-tooltip,
-.palavralink.pl-active .pl-tooltip {
+/* Tooltip aberto (agora por classe, não por :hover do pai) */
+.pl-tooltip.pl-open {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
 /* Conteúdo */
-.palavralink .pl-tooltip img {
+.pl-tooltip img {
   width: 100%;
   max-height: 150px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.palavralink .pl-tooltip strong {
+.pl-tooltip strong {
   font-size: 14px;
   font-weight: 700;
   color: #000;
 }
 
-.palavralink .pl-tooltip p {
+.pl-tooltip p {
   font-size: 12.5px;
   line-height: 1.45;
   color: #333;
   margin: 0;
 }
 
-.palavralink .pl-tooltip em {
+.pl-tooltip em {
   font-style: normal;
   font-weight: 800;
   font-size: 14px;
@@ -73,7 +98,7 @@
 }
 
 /* CTA */
-.palavralink .pl-cta {
+.pl-tooltip .pl-cta {
   display: block;
   margin-top: 6px;
   padding: 9px;
@@ -84,18 +109,15 @@
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  pointer-events: auto;
   cursor: pointer;
-  position: relative;
-  z-index: 2;
 }
 
-.palavralink .pl-cta:hover {
+.pl-tooltip .pl-cta:hover {
   background: #098;
 }
 
 /* Seta */
-.palavralink .pl-tooltip::after {
+.pl-tooltip::after {
   content: "";
   position: absolute;
   top: -7px;
@@ -108,20 +130,12 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .palavralink:hover .pl-tooltip {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .palavralink.pl-active .pl-tooltip {
-    opacity: 1;
-    visibility: visible;
+  .pl-tooltip {
+    max-width: calc(100vw - 24px);
   }
 }
 
-/* ==================================================
-   PROTEÇÕES DE LAYOUT
-   ================================================== */
+/* Proteções (ok manter) */
 article,
 section,
 .ÁreaPub,
