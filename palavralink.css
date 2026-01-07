@@ -214,3 +214,23 @@ footer,
 [class*="social"] {
   z-index: 10 !important;
 }
+/* ==================================================
+   FIX FINAL – Credit Widget abaixo do PalavraLink
+   ================================================== */
+
+/* Credit widget não deve vencer tooltips */
+#credit,
+.credit,
+.credit-widget,
+.footer-credit,
+[class*="credit"] {
+  position: relative;
+  z-index: 1 !important;
+}
+
+/* PalavraLink sempre acima */
+.palavralink .pl-tooltip {
+  position: fixed;
+  z-index: 2147483647;
+}
+
