@@ -18,9 +18,7 @@
   color: #0a7;
 }
 
-/* ==================================================
-   Ícone de compra – PalavraLink
-   ================================================== */
+/* Ícone */
 .palavralink .pl-icon {
   font-size: 0.85em;
   opacity: 0.55;
@@ -31,13 +29,13 @@
 }
 
 /* ==================================================
-   Tooltip (fechado por padrão)
+   Tooltip
    ================================================== */
 .palavralink .pl-tooltip {
-  position: fixed; /* CRÍTICO: ignora stacking context */
+  position: fixed;
   left: 50%;
-  top: calc(100% + 8px);
-  transform: translateX(-50%) translateY(6px) scale(.97);
+  top: 0;
+  transform: translateX(-50%) translateY(0) scale(.97);
 
   width: min(280px, calc(100vw - 32px));
   max-width: 280px;
@@ -47,7 +45,7 @@
   box-shadow: 0 16px 40px rgba(0,0,0,.28);
 
   padding: 12px;
-  z-index: 999999; /* sempre acima do rodapé */
+  z-index: 2147483647;
 
   display: flex;
   flex-direction: column;
@@ -55,8 +53,6 @@
 
   opacity: 0;
   visibility: hidden;
-
-  /* tooltip não bloqueia clique fora */
   pointer-events: none;
 
   transition:
@@ -65,9 +61,7 @@
     visibility .18s ease;
 }
 
-/* ==================================================
-   Tooltip aberto (hover desktop / click mobile)
-   ================================================== */
+/* Tooltip ativo */
 .palavralink:hover .pl-tooltip,
 .palavralink.pl-active .pl-tooltip {
   opacity: 1;
@@ -75,11 +69,7 @@
   transform: translateX(-50%) translateY(0) scale(1);
 }
 
-/* ==================================================
-   Conteúdo do tooltip
-   ================================================== */
-
-/* Imagem */
+/* Conteúdo */
 .palavralink .pl-tooltip img {
   width: 100%;
   max-height: 150px;
@@ -87,14 +77,12 @@
   border-radius: 8px;
 }
 
-/* Título */
 .palavralink .pl-tooltip strong {
   font-size: 14px;
   font-weight: 700;
   color: #000;
 }
 
-/* Descrição */
 .palavralink .pl-tooltip p {
   font-size: 12.5px;
   line-height: 1.45;
@@ -102,7 +90,6 @@
   margin: 0;
 }
 
-/* Preço */
 .palavralink .pl-tooltip em {
   font-style: normal;
   font-weight: 800;
@@ -110,9 +97,7 @@
   color: #0a7;
 }
 
-/* ==================================================
-   Botão CTA – sempre clicável
-   ================================================== */
+/* CTA */
 .palavralink .pl-cta {
   display: block;
   margin-top: 6px;
@@ -124,23 +109,17 @@
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-
-  /* CTA precisa ser clicável */
   pointer-events: auto;
   cursor: pointer;
-
   position: relative;
   z-index: 2;
 }
 
-/* Hover CTA */
 .palavralink .pl-cta:hover {
   background: #098;
 }
 
-/* ==================================================
-   Seta do tooltip
-   ================================================== */
+/* Seta */
 .palavralink .pl-tooltip::after {
   content: "";
   position: absolute;
@@ -152,85 +131,25 @@
   border-color: transparent transparent #ffffff transparent;
 }
 
-/* ==================================================
-   Ajustes específicos para MOBILE
-   ================================================== */
+/* Mobile */
 @media (max-width: 768px) {
-
-  /* tooltip mais central e seguro */
-  .palavralink .pl-tooltip {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%) translateY(10px) scale(.98);
-    max-width: calc(100vw - 24px);
-  }
-
-  /* remove hover no mobile */
   .palavralink:hover .pl-tooltip {
     opacity: 0;
     visibility: hidden;
   }
 
-  /* só abre quando JS ativar */
   .palavralink.pl-active .pl-tooltip {
     opacity: 1;
     visibility: visible;
-    transform: translateX(-50%) translateY(0) scale(1);
   }
 }
 
 /* ==================================================
-   FIX GLOBAL – garantir que nada corte o tooltip
+   PROTEÇÕES DE LAYOUT
    ================================================== */
-
-/* Containers não devem esconder flutuantes */
 article,
 section,
 .ÁreaPub,
 .estudo-artigo {
   overflow: visible;
 }
-
-/* Rodapé fica abaixo de tudo */
-footer,
-.site-footer {
-  position: relative;
-  z-index: 1;
-}
-/* ==================================================
-   FIX FINAL – PalavraLink acima de QUALQUER rodapé
-   ================================================== */
-
-.palavralink .pl-tooltip {
-  position: fixed;
-  z-index: 2147483647; /* z-index máximo seguro */
-}
-/* Rodapés flutuantes NÃO devem vencer tooltips */
-footer,
-.site-footer,
-[class*="footer"],
-[class*="bottom"],
-[class*="copyright"],
-[class*="social"] {
-  z-index: 10 !important;
-}
-/* ==================================================
-   FIX FINAL – Credit Widget abaixo do PalavraLink
-   ================================================== */
-
-/* Credit widget não deve vencer tooltips */
-#credit,
-.credit,
-.credit-widget,
-.footer-credit,
-[class*="credit"] {
-  position: relative;
-  z-index: 1 !important;
-}
-
-/* PalavraLink sempre acima */
-.palavralink .pl-tooltip {
-  position: fixed;
-  z-index: 2147483647;
-}
-
