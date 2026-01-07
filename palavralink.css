@@ -171,3 +171,30 @@
     transform: translateX(-50%) translateY(0) scale(1);
   }
 }
+/* =====================================
+   FIX: PALAVRALINK SOBREPOSIÇÃO AO RODAPÉ
+   ===================================== */
+
+/* Garante que o conteúdo permita elementos flutuantes */
+article,
+section,
+.ÁreaPub,
+.estudo-artigo {
+  overflow: visible;
+}
+
+/* Prioridade visual do card PalavraLink */
+.palavralink,
+.pl-tooltip,
+.pl-card,
+.pl-cta {
+  position: relative;
+  z-index: 9999;
+}
+
+/* Rodapé não deve cobrir elementos flutuantes */
+footer,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
